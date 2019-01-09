@@ -18,10 +18,7 @@ export class AppService {
   }
   storeArticle(articleDTO: ArticleDTO): Promise<Article> {
     const createArticleCommand = new CreateArticleCommand(articleDTO);
-    this.commandBus.execute(createArticleCommand);
-
-    const article = this.articleRepository.create(articleDTO);
-    return this.articleRepository.save(article);
+    return this.commandBus.execute(createArticleCommand);
   }
   getAllArticles(): Promise<Article[]> {
     return this.articleRepository.find();
