@@ -20,4 +20,7 @@ export class AppService {
   getAllArticles(): Promise<Article[]> {
     return this.articleRepository.find();
   }
+  getOneArticle(id: string): Promise<Article> {
+    return this.articleRepository.findOne(id);
+  }
 }
