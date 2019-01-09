@@ -12,13 +12,8 @@ export class AppController {
   }
 
   @Get('/articles')
-  getArticles(): ArticleDTO[] {
-    return [
-      {
-        name: 'Mon title',
-        content: 'Croute',
-      },
-    ];
+  getArticles(): Promise<ArticleDTO[]> {
+    return this.appService.getAllArticles();
   }
 
   @Post('articles')

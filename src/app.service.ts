@@ -17,4 +17,7 @@ export class AppService {
     const article = this.articleRepository.create(articleDTO);
     return this.articleRepository.save(article);
   }
+  getAllArticles(): Promise<Article[]> {
+    return this.articleRepository.find();
+  }
 }
